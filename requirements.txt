@@ -1,6 +1,9 @@
 #basis
 requests==2.12.4
+ws4py
+
 jupyter==1.0.0
+
 
 # optional jupyterlab
 jupyterlab==0.12.1
