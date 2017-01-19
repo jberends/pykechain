@@ -5,9 +5,15 @@ from pykechain.models import Property
 
 
 class AttachmentProperty(Property):
+    """A virtual object representing a KE-chain attachment property."""
+
     @property
     def value(self):
-        return self._download()
+        """Data value of this attachment.
+
+        Use save_as in order to download as a file.
+        """
+        return '[Attachment]'
 
     @value.setter
     def value(self, value):
@@ -21,6 +27,11 @@ class AttachmentProperty(Property):
             pass
 
     def save_as(self, filename):
+        """Download the attachment to a file.
+
+        :param filename: File path
+        :raises: APIError
+        """
         with open(filename, 'wb') as f:
             for chunk in self._download():
                 f.write(chunk)
